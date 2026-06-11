@@ -1,0 +1,124 @@
+{
+  "allocation": {
+    "chosen_exposure": 1.25,
+    "direction": "BUY",
+    "model_ready": true,
+    "model_rows": 4017,
+    "predicted_edge": 0.003984,
+    "raw_target_exposure": 2.137013
+  },
+  "analysis_summary": "GOOGL has positive sentimental model tone from gemini31_pro using 50 scored articles. Average article score is 0.399 with improving article trend.",
+  "article_count": 50,
+  "as_of": "2026-04-27T21:32:08.675106Z",
+  "confidence": 0.86,
+  "influential_articles": [
+    {
+      "event_type": "earnings",
+      "horizon": "months",
+      "materiality": 0.9,
+      "reasoning": "I scored this highly positive because Alphabet delivered a blowout quarter with record $100 billion revenue, driven by a massive 34% surge in Cloud growth and clear evidence of AI monetization. Given the stock's 9% surge to 52-week highs alongside a favorable macro backdrop of recent Fed rate cuts a",
+      "sentiment": 0.95,
+      "source": "CNBC",
+      "title": "Cramer: Meta is not the new tobacco, warns against selling over social media court rulings",
+      "url": null,
+      "verdict": "BUY"
+    },
+    {
+      "event_type": "ai_announcement",
+      "horizon": "weeks",
+      "materiality": 0.6,
+      "reasoning": "The article highlights Alphabet's massive market momentum, driven by the integration of its highly advanced Gemini 3 model, surging cloud profitability, and proprietary TPU advancements, signaling a successful transition to a full-stack AI powerhouse. Given the stock's massive 10.6% rally over the p",
+      "sentiment": 0.85,
+      "source": "Barchart.com",
+      "title": "Alphabet at $4 Trillion: Why the King of Tech Is Feeling Cramped on Planet Earth",
+      "url": null,
+      "verdict": "BUY"
+    },
+    {
+      "event_type": "ai_announcement",
+      "horizon": "months",
+      "materiality": 0.85,
+      "reasoning": "The article highlights Alphabet's significant structural cost advantage and vertical integration in AI through its proprietary TPUs and Gemini 3 model, effectively bypassing Nvidia's expensive hardware ecosystem. Given the stock's massive 13.8% outperformance over the last five days while Nvidia sha",
+      "sentiment": 0.85,
+      "source": "Investing.com",
+      "title": "5 big analyst AI moves: Bullish on Google stock near-term; Tesla upgraded By Investing.com",
+      "url": null,
+      "verdict": "BUY"
+    },
+    {
+      "event_type": "other",
+      "horizon": "weeks",
+      "materiality": 0.7,
+      "reasoning": "The article provides a highly bullish retrospective on Alphabet's unprecedented Q3 financial performance, emphasizing its sector-leading margins, resilience against regulatory fines, and successful AI infrastructure scaling. Given the stock's massive 11.77% five-day outperformance against a sluggish",
+      "sentiment": 0.85,
+      "source": "NASDAQ Stock Market",
+      "title": "Alphabet vs. Meta Platforms: Which Digital Advertising Giant Is the Better Buy?",
+      "url": null,
+      "verdict": "BUY"
+    },
+    {
+      "event_type": "other",
+      "horizon": "weeks",
+      "materiality": 0.3,
+      "reasoning": "I scored this article positively because it strongly validates Alphabet's resilience against antitrust threats and highlights its undisputed leadership in the AI race, framing the company's diverse assets as highly valuable. Given that GOOGL is currently trading at 52-week highs and massively outper",
+      "sentiment": 0.85,
+      "source": "CNBC",
+      "title": "Here are Tuesday's biggest analyst calls: Apple, Tesla, Amazon, GM, Crocs, Viking, Alphabet, Ford & more",
+      "url": null,
+      "verdict": "BUY"
+    }
+  ],
+  "market": "US",
+  "model_signal": 54.205398,
+  "news_breakdown": {
+    "article_count": 50,
+    "average_score": 0.399,
+    "negative_count": 1,
+    "neutral_count": 15,
+    "positive_count": 34,
+    "ticker": "GOOGL",
+    "top_negative_articles": [
+      {
+        "score": -0.15,
+        "source": "B&T",
+        "title": "How Google AI Is Revealing What Marketers Have Been Missing",
+        "verdict": "SELL"
+      }
+    ],
+    "top_positive_articles": [
+      {
+        "score": 0.95,
+        "source": "CNBC",
+        "title": "Cramer: Meta is not the new tobacco, warns against selling over social media court rulings",
+        "verdict": "BUY"
+      },
+      {
+        "score": 0.85,
+        "source": "Barchart.com",
+        "title": "Alphabet at $4 Trillion: Why the King of Tech Is Feeling Cramped on Planet Earth",
+        "verdict": "BUY"
+      },
+      {
+        "score": 0.85,
+        "source": "Investing.com",
+        "title": "5 big analyst AI moves: Bullish on Google stock near-term; Tesla upgraded By Investing.com",
+        "verdict": "BUY"
+      }
+    ]
+  },
+  "overall_sentiment": "Positive",
+  "provenance": {
+    "artifact_version": "20260427",
+    "generated_at": "2026-04-27T21:32:08.675106Z",
+    "leaderboard_file": "data/leaderboard.csv",
+    "news_file": "data/test_GOOGL_news_ctx_alloc_1y.csv",
+    "score_cache_file": "data/score_cache/test_ctx1y_gemini31_pro.json",
+    "trade_file": "data/test_trades_ctx1y_allocator_GOOGL.csv"
+  },
+  "score": 0.399,
+  "source_model": "gemini31_pro",
+  "source_model_id": "google/gemini-3.1-pro-preview",
+  "strategy": "v1",
+  "ticker": "GOOGL",
+  "trend": "Improving"
+}

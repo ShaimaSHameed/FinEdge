@@ -1,0 +1,17 @@
+{
+  "covered_tickers": [
+    "GOOGL"
+  ],
+  "default_model": "gemini31_pro",
+  "files": [
+    "GOOGL.json"
+  ],
+  "generated_at": "2026-04-27T21:32:08.675106Z",
+  "run_id": "20260427",
+  "source_artifacts": {
+    "leaderboard": "data/leaderboard.csv",
+    "news": "data/test_GOOGL_news_ctx_alloc_1y.csv",
+    "score_cache": "data/score_cache/test_ctx1y_gemini31_pro.json",
+    "trades": "data/test_trades_ctx1y_allocator_GOOGL.csv"
+  }
+}
