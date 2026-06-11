@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-04-27T08:55:46Z",
+  "symbol": "MSFT",
+  "device": "cuda",
+  "gpu_mem_gb": 8.0,
+  "lookback_days": 3650,
+  "horizon": 7,
+  "timeframe": "1D",
+  "rolling_eval_bars": 60,
+  "target_scale_floor": 0.003,
+  "target_scale_ceiling": 0.08,
+  "target_transform": "vol_scaled_log_returns_v1",
+  "api_calls": 10,
+  "rows_raw": 1444,
+  "rows_daily": 1444,
+  "trading_days": 1444,
+  "session_tz": "America/New_York",
+  "bar_timeframe": "1D"
+}

@@ -1,0 +1,20 @@
+{
+  "backtest_date": "2026-01-21",
+  "backtest_cutoff_index": 1378,
+  "walkforward_slices": [
+    {
+      "name": "slice_1",
+      "start": 0,
+      "end": 1227
+    },
+    {
+      "name": "slice_2",
+      "start": 217,
+      "end": 1444
+    }
+  ],
+  "production_val_fraction": 0.1,
+  "validation_slice_fraction": 0.18,
+  "rolling_eval_bars": 60,
+  "timeframe": "1D"
+}
