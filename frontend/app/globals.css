@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-white text-text-primary font-sans antialiased;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+  
+  /* Card component base */
+  .card {
+    @apply bg-white rounded-card shadow-card p-6 border border-border;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover transition-shadow duration-200;
+  }
+  
+  /* Button component base */
+  .btn-primary {
+    @apply bg-primary-600 text-white rounded-button font-semibold px-5 py-2 
+           hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500
+           focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-text-primary border border-border rounded-button font-medium 
+           px-4 py-2 hover:bg-slate-50 focus:outline-none focus:ring-2 
+           focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 
+           disabled:cursor-not-allowed transition-colors duration-200;
+  }
+  
+  /* Input component base */
+  .input {
+    @apply w-full px-4 py-3 border border-border rounded-button bg-white
+           focus:outline-none focus:ring-2 focus:ring-primary-500 
+           focus:border-transparent placeholder:text-text-muted
+           disabled:bg-slate-50 disabled:cursor-not-allowed
+           transition-all duration-200;
+  }
+  
+  .input-error {
+    @apply border-danger-500 focus:ring-danger-500;
+  }
+  
+  /* Tag/Pill component base */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-semibold;
+  }
+  
+  .tag-success {
+    @apply bg-success-100 text-success-900;
+  }
+  
+  .tag-danger {
+    @apply bg-danger-100 text-danger-900;
+  }
+  
+  .tag-neutral {
+    @apply bg-slate-100 text-slate-700;
+  }
+  
+  /* Sentiment pills */
+  .sentiment-positive {
+    @apply bg-success-100 text-success-900;
+  }
+  
+  .sentiment-negative {
+    @apply bg-danger-100 text-danger-900;
+  }
+  
+  .sentiment-neutral {
+    @apply bg-slate-100 text-slate-700;
+  }
+}
+
+@layer utilities {
+  @keyframes progress-sweep {
+    0% {
+      transform: translateX(-60%);
+    }
+    50% {
+      transform: translateX(10%);
+    }
+    100% {
+      transform: translateX(60%);
+    }
+  }
+
+  .progress-indeterminate {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-indeterminate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 45%;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0.8), rgba(37, 99, 235, 0.2));
+    animation: progress-sweep 1.6s ease-in-out infinite;
+  }
+
+  .finedge-shell {
+    background:
+      radial-gradient(circle at 68% 0%, rgba(37, 99, 235, 0.08), transparent 30rem),
+      linear-gradient(180deg, #ffffff 0%, #fbfdff 46%, #f8fafc 100%);
+  }
+
+  .soft-card {
+    @apply rounded-[18px] border border-slate-200 bg-white shadow-card;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
