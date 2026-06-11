@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: finedge
+      POSTGRES_PASSWORD: finedge_password
+      POSTGRES_DB: stockanalytics
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - .:/app
+      - ../fundamental_model/outputs:/artifacts/fundamental:ro
+      - ../fundamental_model/data/raw/prices:/artifacts/prices:ro
+      - ../Sentimental_Model/outputs:/artifacts/sentimental:ro
+      - ../Sentimental_Model/sentimental_trades.txt:/artifacts/sentimental_trades.txt:ro
+      - ../Technical_Model/final_1d_artifacts:/artifacts/technical/final_1d_artifacts:ro
+      - ../Technical_Model/final_artifacts:/artifacts/technical/final_artifacts:ro
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://finedge:finedge_password@postgres:5432/stockanalytics
+      NEWS_API_KEY: ${NEWS_API_KEY}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      ALPACA_API_KEY: ${ALPACA_API_KEY:-}
+      ALPACA_SECRET_KEY: ${ALPACA_SECRET_KEY:-}
+      ALPACA_API_SECRET: ${ALPACA_API_SECRET:-}
+      APCA_API_KEY_ID: ${APCA_API_KEY_ID:-}
+      APCA_API_SECRET_KEY: ${APCA_API_SECRET_KEY:-}
+      ALPACA_STOCK_FEED: ${ALPACA_STOCK_FEED:-iex}
+      EODHD_API_KEY: ${EODHD_API_KEY:-}
+      FUNDAMENTAL_ARTIFACT_DIR: /artifacts/fundamental
+      FUNDAMENTAL_REQUIRE_MODEL_SIGNAL: "true"
+      PRICE_HISTORY_DIR: /artifacts/prices
+      SENTIMENTAL_ARTIFACT_DIR: /artifacts/sentimental
+      SENTIMENTAL_TRADE_LOG: /artifacts/sentimental_trades.txt
+      SENTIMENTAL_REQUIRE_MODEL_ARTIFACT: "true"
+      SENTIMENTAL_DEFAULT_MODEL: gemini31_pro
+      SENTIMENTAL_ALLOW_LIVE_FALLBACK: "false"
+      TECHNICAL_ARTIFACT_DIR: /artifacts/technical/final_1d_artifacts
+      TECHNICAL_INTRADAY_ARTIFACT_DIR: /artifacts/technical/final_artifacts
+      TECHNICAL_REQUIRE_MODEL_ARTIFACT: "true"
+      TECHNICAL_REQUIRE_ALPACA_LIVE_DATA: "true"
+      TECHNICAL_INFERENCE_WARMUP_BARS: "420"
+      TECHNICAL_INTRADAY_WARMUP_BARS: "390"
+      TECHNICAL_TARGET_SCALE_FLOOR: "0.003"
+      TECHNICAL_TARGET_SCALE_CEILING: "0.08"
+    depends_on:
+      - postgres
+
+  sentimental-refresh:
+    build:
+      context: ../Sentimental_Model
+      dockerfile: Dockerfile
+    command: python export_artifacts.py --ticker GOOGL --model gemini31_pro --strategy v1
+    volumes:
+      - ../Sentimental_Model/data:/model/data
+      - ../Sentimental_Model/outputs:/model/outputs
+    environment:
+      NEWS_API_KEY: ${NEWS_API_KEY}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+    profiles:
+      - refresh
+
+volumes:
+  postgres_data:
