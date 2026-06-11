@@ -15,10 +15,10 @@ The platform runs three independent ML models, Fundamental, Technical, and Senti
 | Sentiment | Return vs benchmark | +178% vs 130% buy and hold |
 | Fusion | Sharpe ratio | 3.69 |
 
-## Stack
+### Stack
 
 Python · FastAPI · Next.js 14 · PostgreSQL · Docker · LightGBM · Optuna · TradingView · Alpaca API
 
-## Research
+### Research
 
-In Progress: Co-authoring an IEEE conference paper for this project
+*In Progress*: Co-authoring an IEEE conference paper for this project
