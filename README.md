@@ -6,7 +6,7 @@ A full-stack AI-powered stock analysis platform built over two semesters. 4-pers
 The platform runs three independent ML models, Fundamental, Technical, and Sentiment, fused into a single weighted Buy, Sell, or Hold recommendation across 237 US large-cap stocks.
 
 
-## Results
+### Results
 
 | Model | Metric | Result |
 |-------|--------|--------|
