@@ -1,0 +1,13 @@
+eodhd
+yfinance==0.2.38
+pandas
+numpy
+lightgbm
+scikit-learn
+shap
+optuna
+matplotlib
+seaborn
+scipy
+requests
+tqdm
